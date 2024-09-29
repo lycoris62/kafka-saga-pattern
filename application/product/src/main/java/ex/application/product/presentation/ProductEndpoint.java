@@ -1,5 +1,6 @@
 package ex.application.product.presentation;
 
+import ex.application.product.application.ProductCommandService;
 import ex.application.product.message.DeliveryMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,8 +12,11 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class ProductEndpoint {
 
+    private final ProductCommandService productCommandService;
+
     @KafkaListener(topics = "market.product", groupId = "product")
     public void receiveMessage(DeliveryMessage message) {
         log.info("PRODUCT RECEIVE:{}", message);
+        productCommandService.reduceProductAmount(message);
     }
 }

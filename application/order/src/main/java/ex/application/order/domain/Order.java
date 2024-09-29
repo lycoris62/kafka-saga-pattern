@@ -25,4 +25,9 @@ public class Order {
 
         return order;
     }
+
+    public void cancel(String errorType) {
+        this.orderStatus = "CANCELLED";
+        this.errorType = errorType;
+    }
 }
