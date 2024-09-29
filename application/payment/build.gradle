@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group = 'ex.application'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    /* module */
+
+    /* library */
+
+    // spring web mvc
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // kafka
+    implementation 'org.springframework.kafka:spring-kafka'
+
+    // docker compose support
+    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+
+    /* test */
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,5 @@
+rootProject.name = 'saga-kafka'
+
+include 'application:order'
+include 'application:product'
+include 'application:payment'

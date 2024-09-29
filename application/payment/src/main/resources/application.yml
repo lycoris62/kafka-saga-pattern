@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: payment-service
+  profiles:
+    default: dev
+server:
+  port: 8082

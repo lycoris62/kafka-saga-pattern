@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: product-service
+  profiles:
+    default: dev
+server:
+  port: 8083
