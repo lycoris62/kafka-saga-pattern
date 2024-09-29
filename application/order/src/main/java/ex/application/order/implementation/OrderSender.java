@@ -1,6 +1,5 @@
 package ex.application.order.implementation;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import ex.application.order.dto.OrderCreateReq;
 import ex.application.order.message.DeliveryMessage;
 import java.util.UUID;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OrderSender {
 
-    private final ObjectMapper objectMapper;
     private final KafkaTemplate<String, DeliveryMessage> kafkaTemplate;
 
     public void send(String topic, UUID orderId, OrderCreateReq request) {
@@ -26,12 +24,5 @@ public class OrderSender {
             null);
 
         kafkaTemplate.send(topic, orderId.toString(), message);
-
-//        try {
-//            String json = objectMapper.writeValueAsString(message);
-//            kafkaTemplate.send(topic, orderId.toString(), json);
-//        } catch (JsonProcessingException e) {
-//            throw new RuntimeException(e);
-//        }
     }
 }

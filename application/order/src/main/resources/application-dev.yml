@@ -1,9 +1,4 @@
 spring:
-  kafka:
-    bootstrap-servers: localhost:9092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
   docker:
     compose:
       lifecycle-management: start_only # start_only, start_and_stop 옵션이 있으며, 스프링 종료 시 컨테이너 종료 여부를 결정할 수 있음
